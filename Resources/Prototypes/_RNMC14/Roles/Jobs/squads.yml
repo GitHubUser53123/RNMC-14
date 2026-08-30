@@ -27,6 +27,9 @@
   components:
   - type: SquadTeam
     color: "#DE3A3A"
+    background:
+      sprite: _RMC14/Interface/job_icons/UNMC/marine.rsi
+      state: hudsquad
     radio: RedDawn
     blacklistedSquadArmor:
     - Helmet
