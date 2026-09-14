@@ -44,6 +44,9 @@
       CMSPPPlatoonSergeantPVE: 1
       CMSPPPlatoonCommanderPVE: 1
     group: RedDawn
+    minimapBackground:
+      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      state: background_delta
   - type: Tag
     tags:
     - RNMCSquadRedDawn
