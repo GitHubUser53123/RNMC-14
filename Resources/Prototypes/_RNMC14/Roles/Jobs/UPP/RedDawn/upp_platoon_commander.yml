@@ -95,7 +95,7 @@
   id: RMCJobIconSPPPlatco
   icon:
     sprite: _RMC14/Interface/job_icons/SPP/standard.rsi
-    state: upp_slt
+    state: spp_slt
 
 - type: entity
   parent: CMIDCardStandardDogtag

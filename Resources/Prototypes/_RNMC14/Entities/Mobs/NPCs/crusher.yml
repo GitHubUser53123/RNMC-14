@@ -63,3 +63,31 @@
   components:
   - type: Sprite
     sprite: _RNMC14/Mobs/XenonidsCM/Crusher/crusher.rsi
+
+
+# You may be confused.
+# Why the funk is there a copy & paste of base_xeno.yml code?
+# The answer is that crusher has its ai code a little bit different.
+# It picks the entity with highest health instead of the closest one.
+- type: htnCompound
+  id: CMXenoCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: CMXenoMeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: MoveToAliveCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: CMXenoMeleeCombatCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyMeleeTargetsHealth
+    - !type:HTNCompoundTask
+      task: MeleeAttackTargetCompound
