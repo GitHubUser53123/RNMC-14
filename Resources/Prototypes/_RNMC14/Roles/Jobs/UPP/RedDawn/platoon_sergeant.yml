@@ -87,7 +87,7 @@
   id: RMCJobIconSPPPlatoonSergeant
   icon:
     sprite: _RMC14/Interface/job_icons/SPP/standard.rsi
-    state: upp_sl_a
+    state: spp_sl_a
 
 - type: entity
   parent: CMIDCardStandardDogtag
