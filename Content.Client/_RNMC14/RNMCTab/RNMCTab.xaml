@@ -7,5 +7,6 @@
     <GridContainer Columns="3">
         <cc:CommandButton Command="narrateui" Text="{Loc rnmc-narrate}" />
         <cc:CommandButton Command="togglesui" Text="{Loc rnmc-toggles}" />
+        <cc:CommandButton Command="rnmclightui" Text="{Loc rnmc-light-window-title}" />
     </GridContainer>
 </Control>

@@ -26,6 +26,15 @@ namespace Content.Server._RNMC14.AdminLighting
         public string[] ActiveHexValues { get; } = (string[])DefaultHexValues.Clone();
 
         private readonly List<LightingTabEui> _openEuis = new();
+        private readonly Dictionary<EntityUid, FadeState> _activeFades = new();
+
+        private struct FadeState
+        {
+            public Color StartColor;
+            public Color TargetColor;
+            public float Duration;
+            public float Progress;
+        }
 
         public void RegisterOpenEui(LightingTabEui eui) => _openEuis.Add(eui);
         public void UnregisterOpenEui(LightingTabEui eui) => _openEuis.Remove(eui);
@@ -35,26 +44,40 @@ namespace Content.Server._RNMC14.AdminLighting
         {
             base.Update(frameTime);
 
-            var query = EntityQueryEnumerator<MapLightComponent>();
-            while (query.MoveNext(out var uid, out var mapLight))
+            if (_activeFades.Count == 0)
+                return;
+
+            var toRemove = new List<EntityUid>();
+            var uids = new List<EntityUid>(_activeFades.Keys);
+
+            foreach (var uid in uids)
             {
-                if (mapLight.FadeDuration <= 0f)
-                    continue;
-
-                mapLight.FadeProgress += frameTime / mapLight.FadeDuration;
-
-                if (mapLight.FadeProgress >= 1f)
+                if (!_entManager.TryGetComponent<MapLightComponent>(uid, out var mapLight))
                 {
-                    mapLight.AmbientLightColor = mapLight.FadeTargetColor;
-                    mapLight.FadeDuration = 0f;
-                    mapLight.FadeProgress = 0f;
+                    toRemove.Add(uid);
+                    continue;
+                }
+
+                var fade = _activeFades[uid];
+                fade.Progress += frameTime / fade.Duration;
+
+                if (fade.Progress >= 1f)
+                {
+                    mapLight.AmbientLightColor = fade.TargetColor;
+                    toRemove.Add(uid);
                 }
                 else
                 {
-                    mapLight.AmbientLightColor = Color.InterpolateBetween(mapLight.FadeStartColor, mapLight.FadeTargetColor, mapLight.FadeProgress);
+                    mapLight.AmbientLightColor = Color.InterpolateBetween(fade.StartColor, fade.TargetColor, fade.Progress);
                 }
 
                 _entManager.Dirty(uid, mapLight);
+                _activeFades[uid] = fade;
+            }
+
+            foreach (var uid in toRemove)
+            {
+                _activeFades.Remove(uid);
             }
         }
 
@@ -65,11 +88,9 @@ namespace Content.Server._RNMC14.AdminLighting
                 ActiveHexValues[i] = DefaultHexValues[i];
             }
             ShouldFade = true;
-            KeepFadeDuration(5.0f);
+            FadeDuration = 5.0f;
             SyncAllOpenPanels();
         }
-
-        private void KeepFadeDuration(float dur) => FadeDuration = dur;
 
         public void UpdateArrayMemoryDirect(int index, string hex, bool fade, float duration)
         {
@@ -93,16 +114,16 @@ namespace Content.Server._RNMC14.AdminLighting
             var mapManager = IoCManager.Resolve<IMapManager>();
             var mapUid = mapManager.GetMapEntityId(adminXform.MapID);
 
-            if (!mapUid.IsValid() || !_entManager.TryGetComponent<MapLightComponent>(mapUid, out var mapLight))
+            if (!mapUid.IsValid() || !_activeFades.ContainsKey(mapUid))
                 return;
 
-            if (mapLight.FadeDuration <= 0f)
-                return;
+            _activeFades.Remove(mapUid);
 
-            mapLight.FadeDuration = 0f;
-            mapLight.FadeProgress = 0f;
-            _entManager.Dirty(mapUid, mapLight);
-            _chat.SendAdminAlert($"{player.Name.ToString()} cancelled the active lighting fade on map {adminXform.MapID.ToString()}. Frozen at {mapLight.AmbientLightColor.ToHex()}");
+            if (_entManager.TryGetComponent<MapLightComponent>(mapUid, out var mapLight))
+            {
+                _entManager.Dirty(mapUid, mapLight);
+                _chat.SendAdminAlert($"{player.Name.ToString()} cancelled the active lighting fade on map {adminXform.MapID.ToString()}. Frozen at {mapLight.AmbientLightColor.ToHex()}");
+            }
         }
 
         public void ExecuteMapLightShift(ICommonSession? player, int index, string hex, bool fade, float duration)
@@ -133,21 +154,23 @@ namespace Content.Server._RNMC14.AdminLighting
 
             if (!fade || duration <= 0f)
             {
+                _activeFades.Remove(mapUid);
                 mapLight.AmbientLightColor = targetColor;
-                mapLight.FadeDuration = 0f;
-                mapLight.FadeProgress = 0f;
                 _entManager.Dirty(mapUid, mapLight);
                 _chat.SendAdminAlert($"{player.Name.ToString()} snapped map {adminMapId.ToString()} light to {hex.ToString()}");
                 return;
             }
 
-            mapLight.FadeStartColor = mapLight.AmbientLightColor;
-            mapLight.FadeTargetColor = targetColor;
-            mapLight.FadeProgress = 0f;
-            mapLight.FadeDuration = duration;
+            var newFade = new FadeState
+            {
+                StartColor = mapLight.AmbientLightColor,
+                TargetColor = targetColor,
+                Duration = duration,
+                Progress = 0f
+            };
 
-            _entManager.Dirty(mapUid, mapLight);
-            _chat.SendAdminAlert($"{player.Name.ToString()} initiated a smooth {duration.ToString()}s delta-tick fade on map {adminMapId.ToString()} to {hex.ToString()}");
+            _activeFades[mapUid] = newFade;
+            _chat.SendAdminAlert($"{player.Name.ToString()} initiated a smooth {duration.ToString()}s self-contained fade on map {adminMapId.ToString()} to {hex.ToString()}");
         }
     }
 }
