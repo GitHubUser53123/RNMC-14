@@ -122,7 +122,7 @@ namespace Content.Server._RNMC14.AdminLighting
             if (_entManager.TryGetComponent<MapLightComponent>(mapUid, out var mapLight))
             {
                 _entManager.Dirty(mapUid, mapLight);
-                _chat.SendAdminAlert($"{player.Name.ToString()} cancelled the active lighting fade on map {adminXform.MapID.ToString()}. Frozen at {mapLight.AmbientLightColor.ToHex()}");
+                _chat.SendAdminAlert($"{player.Name.ToString()} cancelled the active fade on map {adminXform.MapID.ToString()}. Frozen at {mapLight.AmbientLightColor.ToHex()}");
             }
         }
 
@@ -157,7 +157,7 @@ namespace Content.Server._RNMC14.AdminLighting
                 _activeFades.Remove(mapUid);
                 mapLight.AmbientLightColor = targetColor;
                 _entManager.Dirty(mapUid, mapLight);
-                _chat.SendAdminAlert($"{player.Name.ToString()} snapped map {adminMapId.ToString()} light to {hex.ToString()}");
+                _chat.SendAdminAlert($"{player.Name.ToString()} set map {adminMapId.ToString()} light to {hex.ToString()}");
                 return;
             }
 
@@ -170,7 +170,7 @@ namespace Content.Server._RNMC14.AdminLighting
             };
 
             _activeFades[mapUid] = newFade;
-            _chat.SendAdminAlert($"{player.Name.ToString()} initiated a smooth {duration.ToString()}s self-contained fade on map {adminMapId.ToString()} to {hex.ToString()}");
+            _chat.SendAdminAlert($"{player.Name.ToString()} initiated a {duration.ToString()}s fade on map {adminMapId.ToString()} to {hex.ToString()}");
         }
     }
 }
