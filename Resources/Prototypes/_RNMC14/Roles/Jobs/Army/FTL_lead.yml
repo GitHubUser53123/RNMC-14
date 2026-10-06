@@ -12,7 +12,7 @@
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-sl
   accessGroups:
-  - ArmyAccessPVE
+  - Colony
   spawnMenuRoleName: Army Fireteam Lead
   special:
   - !type:AddComponentSpecial
@@ -32,7 +32,7 @@
         RMCSkillJtac: 3
     - type: JobPrefix
       prefix: rnmc-job-prefix-army-ftl-lead
-  hidden: false
+  hidden: true
 
 - type: entity
   id: RMCRandomHumanoidArmyFireteamLead
@@ -103,13 +103,3 @@
   components:
   - type: PresetIdCard
     job: RNMCArmyFireteamLead
-
-- type: entity
-  parent: CMSpawnPointJobBase
-  id: CMSpawnPointFireteamLeadArmy
-  name: Army Fireteam Lead Spawn Point
-  components:
-  - type: SpawnPoint
-    job_id: RNMCArmyFireteamLead
-  - type: Sprite
-    state: marine_spawn

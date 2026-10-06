@@ -12,7 +12,7 @@
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-sl
   accessGroups:
-  - ArmyAccessPVE
+  - Colony
   spawnMenuRoleName: Army Anti-Tank Gunner (Needs Loader)
   special:
   - !type:AddComponentSpecial
@@ -30,7 +30,7 @@
     - type: DemoSpecWhitelist
     - type: JobPrefix
       prefix: rnmc-job-prefix-at-gunner
-  hidden: false
+  hidden: true
 
 - type: entity
   id: RMCRandomHumanoidArmyATGunner
@@ -96,13 +96,3 @@
   components:
   - type: PresetIdCard
     job: RNMCAntiTankGunner
-
-- type: entity
-  parent: CMSpawnPointJobBase
-  id: CMSpawnPointATGunnerArmy
-  name: Army AT Gunner Spawn Point
-  components:
-  - type: SpawnPoint
-    job_id: RNMCAntiTankGunner
-  - type: Sprite
-    state: marine_spawn
