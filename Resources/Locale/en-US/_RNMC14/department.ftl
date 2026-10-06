@@ -12,3 +12,6 @@ cm-department-FORECON = A Force Recon team of marines, usually referred to as FO
 
 department-CMAzure15 = (PVE) Azure-15
 cm-department-azure-15 = Part of the Whiteguard Solutions, a subsidiary of WY. 
+
+department-TSE = (PVE) Three Sun Empire
+cm-department-TSE = Federation of nations created by the joining of the United Kingdom and Japan, as well as allied nations including India, Indonesia, and Australia.

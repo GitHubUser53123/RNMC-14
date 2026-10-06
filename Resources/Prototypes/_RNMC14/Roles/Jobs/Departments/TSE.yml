@@ -1,7 +1,7 @@
 - type: department
   parent: CMDepartmentBase
   id: CMTSE
-  name: TSE
+  name: department-TSE
   description: cm-department-TSE
   color: "#e1580e"
   roles:
