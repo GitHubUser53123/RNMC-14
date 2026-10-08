@@ -35,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="..\Content.CMU\Server\**\*.cs" Link="CMU\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="_RNMC14\AdminToggles\" />
   </ItemGroup>
 </Project>

@@ -325,13 +325,14 @@ namespace Content.Server.Explosion.EntitySystems
         /// <summary>
         /// Start the timer for triggering the device.
         /// </summary>
-        public void StartTimer(Entity<OnUseTimerTriggerComponent?> ent, EntityUid? user)
+        public bool StartTimer(Entity<OnUseTimerTriggerComponent?> ent, EntityUid? user)
         {
             if (!Resolve(ent, ref ent.Comp, false))
-                return;
+                return false;
 
             var comp = ent.Comp;
             HandleTimerTrigger(ent, user, comp.Delay, comp.BeepInterval, comp.InitialBeepDelay, comp.BeepSound);
+            return true;
         }
 
         public void HandleTimerTrigger(EntityUid uid, EntityUid? user, float delay, float beepInterval, float? initialBeepDelay, SoundSpecifier? beepSound)

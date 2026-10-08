@@ -509,6 +509,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shotEv = new GunShotEvent(user, ev.Ammo, fromCoordinates, toCoordinates.Value);
         RaiseLocalEvent(gunUid, ref shotEv);
 
+        // cmu edit start
+        var cmuFiredEv = new Content.Shared.CMU14.Hearing.CMUGunFiredEvent(gunUid, user, fromCoordinates);
+        RaiseLocalEvent(ref cmuFiredEv);
+        // cmu edit end
+
         if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
         {
             if (_gravity.IsWeightless(user, userPhysics))
