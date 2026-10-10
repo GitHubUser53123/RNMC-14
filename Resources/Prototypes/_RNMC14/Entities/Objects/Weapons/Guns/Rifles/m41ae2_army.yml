@@ -32,14 +32,13 @@
           - RMCAttachmentM54CStockCollapsible
       # End of RNMC-14 modifications.
       rmc-aslot-underbarrel:
-        locked: true
         startingAttachable: RNMCAttachmentBipod
         whitelist:
           tags:
           - RMCAttachmentAngledGrip
           - RMCAttachmentBipod
           - RMCAttachmentBurstFireAssembly
-          - RMCAttachmentExtinguisher
+          - RMCAttachmentUnderbarrelExtinguisher
           - RMCAttachmentFlashlightGrip
           - RMCAttachmentVerticalGrip
   - type: AttachableHolderVisuals
