@@ -1,0 +1,20 @@
+- type: department
+  parent: CMDepartmentBase
+  id: CMTSE
+  name: department-TSE
+  description: cm-department-TSE
+  color: "#e1580e"
+  roles:
+  - CMRoyalMarinesTroopCommanderPVE
+  - CMRoyalMarinesTroopSargePVE
+  - CMRoyalMarinesSectionLeaderPVE
+  - CMRoyalMarinesTeamLeaderPVE
+  - CMRoyalMarinesAssaultEngineerPVE
+  - CMRoyalMarinesSmartgunnerPVE
+  - CMRoyalMarinesBombSpecPVE
+  - CMRoyalMarinesScoutSniperPVE
+  - CMRoyalMarinesMedicPVE
+  - CMRoyalMarinesRiflemanPVE
+  departmentRadio: RoyalMarine
+  headOfDepartment: CMRoyalMarinesTroopCommanderPVE
+  
