@@ -1,7 +1,7 @@
 - type: department
   parent: CMDepartmentBase
   id: CMArmy
-  name: US Army
+  name: department-USARMY
   description: cm-department-US-Army
   color: "#5D6532"
   roles:
