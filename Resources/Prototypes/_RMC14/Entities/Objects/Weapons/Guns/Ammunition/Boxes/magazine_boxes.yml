@@ -3464,7 +3464,7 @@
 - type: entity
   parent: RMCBoxMagazinePistolBase
   id: RMCBoxMagazinePistolM13Empty
-  name: magazine box (M13 x 16)
+  name: magazine box (M13 x 22)
   components:
   - type: Construction
     graph: RMCBoxMagazine
@@ -3487,7 +3487,7 @@
       map: [ "lid_marking" ]
       color: "#7c4c1b"
   - type: CMItemSlots
-    count: 16
+    count: 22
     slot:
       whitelist:
         tags:
@@ -3500,7 +3500,7 @@
   components:
   - type: CMItemSlots
     startingItem: RMCMagazinePistolM13
-    count: 16
+    count: 22
     slot:
       whitelist:
         tags:
@@ -3510,7 +3510,7 @@
 - type: entity
   parent: RMCBoxMagazinePistolBase
   id: RMCBoxMagazinePistolM13ExtEmpty
-  name: magazine box (Ext M13 x 10)
+  name: magazine box (Ext M13 x 14)
   components:
   - type: Construction
     graph: RMCBoxMagazine
@@ -3533,7 +3533,7 @@
       map: [ "lid_marking" ]
       color: "#ffcb26"
   - type: CMItemSlots
-    count: 10
+    count: 14
     slot:
       whitelist:
         tags:
@@ -3546,7 +3546,7 @@
   components:
   - type: CMItemSlots
     startingItem: RMCMagazinePistolM13Ext
-    count: 10
+    count: 14
     slot:
       whitelist:
         tags:
@@ -3556,7 +3556,7 @@
 - type: entity
   parent: RMCBoxMagazinePistolBase
   id: RMCBoxMagazinePistolM13DrumEmpty
-  name: magazine box (Drum M13 x 8)
+  name: magazine box (Drum M13 x 12)
   components:
   - type: Construction
     graph: RMCBoxMagazine
@@ -3579,7 +3579,7 @@
       map: [ "lid_marking" ]
       color: "#ffa126"
   - type: CMItemSlots
-    count: 8
+    count: 12
     slot:
       whitelist:
         tags:
@@ -3592,7 +3592,7 @@
   components:
   - type: CMItemSlots
     startingItem: RMCMagazinePistolM13Drum
-    count: 8
+    count: 12
     slot:
       whitelist:
         tags:
@@ -3602,7 +3602,7 @@
 - type: entity
   parent: RMCBoxMagazinePistolBase
   id: RMCBoxMagazinePistolM13APEmpty
-  name: magazine box (M13 AP x 16)
+  name: magazine box (M13 AP x 22)
   components:
   - type: Construction
     graph: RMCBoxMagazine
@@ -3625,7 +3625,7 @@
       map: [ "lid_marking" ]
       color: "#318b11"
   - type: CMItemSlots
-    count: 16
+    count: 22
     slot:
       whitelist:
         tags:
@@ -3638,7 +3638,7 @@
   components:
   - type: CMItemSlots
     startingItem: RMCMagazinePistolM13AP
-    count: 16
+    count: 22
     slot:
       whitelist:
         tags:
@@ -3648,7 +3648,7 @@
 - type: entity
   parent: RMCBoxMagazinePistolBase
   id: RMCBoxMagazinePistolM13ExtAPEmpty
-  name: magazine box (Ext M13 AP x 10)
+  name: magazine box (Ext M13 AP x 14)
   components:
   - type: Construction
     graph: RMCBoxMagazine
@@ -3671,7 +3671,7 @@
       map: [ "lid_marking" ]
       color: "#318b11"
   - type: CMItemSlots
-    count: 10
+    count: 14
     slot:
       whitelist:
         tags:
@@ -3684,7 +3684,7 @@
   components:
   - type: CMItemSlots
     startingItem: RMCMagazinePistolM13ExtAP
-    count: 10
+    count: 14
     slot:
       whitelist:
         tags:
@@ -3694,7 +3694,7 @@
 - type: entity
   parent: RMCBoxMagazinePistolBase
   id: RMCBoxMagazinePistolM13DrumAPEmpty
-  name: magazine box (Drum M13 AP x 8)
+  name: magazine box (Drum M13 AP x 12)
   components:
   - type: Construction
     graph: RMCBoxMagazine
@@ -3717,7 +3717,7 @@
       map: [ "lid_marking" ]
       color: "#7f8b11"
   - type: CMItemSlots
-    count: 8
+    count: 12
     slot:
       whitelist:
         tags:
@@ -3730,7 +3730,7 @@
   components:
   - type: CMItemSlots
     startingItem: RMCMagazinePistolM13DrumAP
-    count: 8
+    count: 12
     slot:
       whitelist:
         tags:
