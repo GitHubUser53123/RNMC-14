@@ -706,12 +706,18 @@
     - sprite: _RMC14/Objects/Weapons/Guns/gun_underlays.rsi
       state: c_deagle
       map: [ "co_handcannon_fill" ]
+      #RNMC Start
+    - sprite: _RMC14/Objects/Weapons/Guns/gun_underlays.rsi
+      state: m13
+      map: [ "m13_fill" ]
+      #RNMC End
     - state: icon-front
       map: [ "holstered" ]
     - state: half
       map: [ "openLayer" ]
     - state: full
       map: [ "closedLayer" ]
+
   - type: Clothing
     sprite: _RMC14/Objects/Clothing/Belt/holster_pistol/classic-jungle.rsi
     slots:
