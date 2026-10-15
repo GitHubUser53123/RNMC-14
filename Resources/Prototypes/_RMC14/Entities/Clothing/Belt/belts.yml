@@ -733,7 +733,6 @@
       - CMMagazinePistol
     blacklist:
       tags:
-      - RMCWeaponPistolM13
       - RMCSmartPistol
       - RMCMagazinePistolSU6
       - RMCRevolver
@@ -766,6 +765,7 @@
     - mk45_fill
     - t73_fill
     - l54_fill
+    - m13_fill
     - handcannon_fill
     - g_handcannon_fill
     - co_handcannon_fill
@@ -783,6 +783,10 @@
           tags:
           - CMWeaponPistolM1984
           - CMWeaponPistolM1911
+      m13_fill:
+        whitelist:
+          tags:
+          - RMCWeaponPistolM13
       mk80_fill:
         whitelist:
           tags:
@@ -1230,7 +1234,7 @@
   parent: CMBeltMarine
   id: RMCBeltHolsterM13
   name: M276 pattern M13 holster rig
-  description: Special issue variant of the M276 - designed exclusively to securely hold an M13 Auto Pistol and three spare magazines, allowing quick access in close-quarters situations. Ideal for defending against boarding threats, this belt supports rapid deployment of high-rate sidearms while maintaining stability in zero-G environments.
+  description: Special issue variant of the M276 - designed exclusively to securely hold an M13 Auto Pistol and seven spare magazines, allowing quick access in close-quarters situations. Ideal for defending against boarding threats, this belt supports rapid deployment of high-rate sidearms while maintaining stability in zero-G environments.
   components:
   - type: Sprite
     sprite: _RMC14/Objects/Clothing/Belt/holster_autopistol.rsi
@@ -1254,7 +1258,7 @@
     size: Large
   - type: Storage
     grid:
-    - 0,0,7,1 # 4 slots
+    - 0,0,15,1 # 7 slots
     whitelist:
       tags:
       - RMCMagazinePistolM13
@@ -1271,7 +1275,7 @@
         tags:
         - RMCWeaponPistolM13
     - popup: rmc-storage-limit-max-mags
-      count: 3
+      count: 7
       whitelist:
         tags:
         - RMCMagazinePistolM13
