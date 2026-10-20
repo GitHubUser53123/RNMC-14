@@ -92,6 +92,12 @@
         points: 6
       - id: CMMagazineRifleM4SPRExt
         points: 6
+# RNMC Start
+      - id: RMCMagazinePistolM13AP
+        points: 6
+      - id: RMCMagazinePistolM13ExtAP
+        points: 8
+# RNMC End
       - id: CMMagazineSMGM63AP
         points: 6
       - id: CMMagazineSMGM63Ext
