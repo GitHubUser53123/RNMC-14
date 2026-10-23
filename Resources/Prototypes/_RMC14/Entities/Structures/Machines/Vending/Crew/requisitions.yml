@@ -192,6 +192,10 @@
       - id: RMCPamphletAdminConstruction2
       - id: RMCPamphletAdminMedical1
       - id: CMPamphletPowerloader
+      ## RNMC Start
+      - id: RNMCPamphletDualWield
+        amount: 3
+      ## RNMC End
     - name: Explosive Boxes
       hasBoxes: true
       entries:
@@ -312,6 +316,12 @@
         amount: 60
       - id: RMCMagazinePistolM1984AP
         amount: 20
+      #RNMC Start
+      - id: RMCMagazinePistolM13AP
+        amount: 14
+      - id: RMCMagazinePistolM13ExtAP
+        amount: 6
+      #RNMC End
     - name: Extended ammunition
       entries:
       - id: CMMagazineSMGM63Ext
@@ -320,8 +330,10 @@
         amount: 40
       - id: CMMagazineRifleM54CExt
         amount: 8
+      #RNMC Start
       - id: RMCMagazinePistolM13Ext
-        amount: 5
+        amount: 10
+      #RNMC End
     - name: Special ammunition
       entries:
       - id: RMCPowerCellSmartgun
@@ -362,13 +374,21 @@
       hasBoxes: true
       entries:
       - id: RMCBoxMagazinePistolM13
-        name: Magazine Box (M13 x 16)
+        name: Magazine Box (M13 x 22)
         box: RMCMagazinePistolM13
 
       - id: RMCBoxMagazinePistolM13Ext
-        name: Magazine Box (Ext M13 x 10)
+        name: Magazine Box (Ext M13 x 14)
         box: RMCMagazinePistolM13Ext
+## RNMC Start
+      - id: RMCBoxMagazinePistolM13AP
+        name: Magazine Box (M13 AP x 22)
+        box: RMCMagazinePistolM13AP
 
+      - id: RMCBoxMagazinePistolM13ExtAP
+        name: Magazine Box (Ext M13 AP x 14)
+        box: RMCMagazinePistolM13ExtAP
+## RNMC End
       - id: RMCBoxMagazineSMGM63
         name: Magazine Box (M63 x 12)
         box: CMMagazineSMGM63
@@ -579,9 +599,9 @@
     - name: Stock
       entries:
       - id: RMCAttachmentM13StockSolid
-        amount: 3
+        amount: 5
       - id: RMCAttachmentM13StockCollapsible
-        amount: 2
+        amount: 5
       - id: RMCAttachmentM42A2CollapsibleStock
       - id: RMCAttachmentM63ArmBrace
       - id: RMCAttachmentM63Stock

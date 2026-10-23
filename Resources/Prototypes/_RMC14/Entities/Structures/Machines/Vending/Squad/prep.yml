@@ -303,12 +303,6 @@
       entries:
       - id: CMMagazineRifleM4SPRAP
         amount: 4
-#RNMC Start
-      - id: RMCMagazinePistolM13AP
-        amount: 4
-      - id: RMCMagazinePistolM13ExtAP
-        amount: 2
-#RNMC End
       - id: CMMagazineSMGM63AP
         amount: 12
       - id: CMMagazineRifleM54CAP
