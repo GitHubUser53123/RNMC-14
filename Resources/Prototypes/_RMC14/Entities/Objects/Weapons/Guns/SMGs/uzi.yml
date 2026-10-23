@@ -82,6 +82,7 @@
       rmc-aslot-underbarrel: 0.3, -0.31
   - type: GunDamageModifier
     multiplier: 1.1
+  - type: Multishot
 
 - type: entity
   parent: CMMagazineRifleBase

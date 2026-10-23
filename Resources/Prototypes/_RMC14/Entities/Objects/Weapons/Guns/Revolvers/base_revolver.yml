@@ -56,6 +56,7 @@
   - type: GunPointBlank
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 0.85
+  - type: Multishot
 
 - type: Tag
   id: RMCMagazineRevolver
