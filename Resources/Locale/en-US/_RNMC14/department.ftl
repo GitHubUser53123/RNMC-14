@@ -15,3 +15,6 @@ cm-department-azure-15 = Part of the Whiteguard Solutions, a subsidiary of WY.
 
 department-TSE = (PVE) Three Suns Empire
 cm-department-TSE = Federation of nations created by the joining of the United Kingdom and Japan, as well as allied nations including India, Indonesia, and Australia.
+
+department-USARMY = (PVE) U.S Army
+cm-department-US-Army = The Regular Army of the United States.
