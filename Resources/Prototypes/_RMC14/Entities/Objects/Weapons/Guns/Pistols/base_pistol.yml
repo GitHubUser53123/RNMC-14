@@ -84,6 +84,7 @@
           tags:
           - RMCAttachmentBurstFireAssembly
           - RMCAttachmentLaserSight
+  - type: Multishot
 
 - type: entity
   abstract: true
