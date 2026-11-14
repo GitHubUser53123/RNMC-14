@@ -12,7 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared._RMC14.Weapons.Ranged;
 
 namespace Content.Shared._RNMC14.TacticalReload;
-
+// NOTE: ALL OF THIS IS EVIL AND SHITCODE. All is how it's supposed to be.
 public sealed class TacticalReloadSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
