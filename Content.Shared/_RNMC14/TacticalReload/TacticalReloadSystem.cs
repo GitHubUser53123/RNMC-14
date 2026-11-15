@@ -44,6 +44,13 @@ public sealed class TacticalReloadSystem : EntitySystem
 
         if (!TryComp<TacticalReloadComponent>(gun, out var tactical))
             return;
+
+        if (!_containers.TryGetContainingContainer(ammo, out var container) ||
+            !TryComp<TacticalReloadStorageComponent>(container.Owner, out _))
+        {
+            return;
+        }
+
         // I'm too lazy to make this a bool to change in the comp, deal with it.
         if (TryComp<WieldableComponent>(gun, out var wieldable) && wieldable.Wielded)
         {
@@ -56,12 +63,6 @@ public sealed class TacticalReloadSystem : EntitySystem
         {
             _popup.PopupClient(Loc.GetString("rmc-breech-loaded-closed-load-attempt"), args.User, args.User);
             args.Handled = true;
-            return;
-        }
-
-        if (!_containers.TryGetContainingContainer(ammo, out var container) ||
-            !TryComp<TacticalReloadStorageComponent>(container.Owner, out _))
-        {
             return;
         }
 
