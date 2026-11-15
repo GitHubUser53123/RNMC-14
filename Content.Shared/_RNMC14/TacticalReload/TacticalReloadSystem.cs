@@ -84,7 +84,7 @@ public sealed class TacticalReloadSystem : EntitySystem
             var ejectDoAfterArgs = new DoAfterArgs(EntityManager, args.User, ejectDelay, new TacticalReloadEjectDoAfterEvent(), gun, target: storageEnt, used: ammo)
             {
                 BreakOnMove = tactical.BreakOnMove,
-                BreakOnDamage = true,
+                BreakOnDamage = false,
                 NeedHand = true,
                 DuplicateCondition = DuplicateConditions.SameTarget,
             };
