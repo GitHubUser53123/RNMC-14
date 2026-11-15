@@ -51,6 +51,7 @@
       - id: CMWeaponPistolM1984Empty
       - id: RMCWeaponPistolM13Empty
       - id: RMCWeaponPistolM82FEmpty
+      - id: WeaponShotgunM357Sawn
     - name: Restricted Firearms
       entries:
       - id: RMCGunCasePistolMK80
@@ -125,6 +126,7 @@
       - id: RMCM82FHolster
       - id: RMCM276ShotgunShellLoadingRig
       - id: CMBeltMortar
+      - id: RNMCBeltDualShotgun
     - name: Pouches
       entries:
       - id: RMCPouchAutoinjector
@@ -192,10 +194,7 @@
       - id: RMCPamphletAdminConstruction2
       - id: RMCPamphletAdminMedical1
       - id: CMPamphletPowerloader
-      ## RNMC Start
-      - id: RNMCPamphletDualWield
-        amount: 3
-      ## RNMC End
+
     - name: Explosive Boxes
       hasBoxes: true
       entries:
