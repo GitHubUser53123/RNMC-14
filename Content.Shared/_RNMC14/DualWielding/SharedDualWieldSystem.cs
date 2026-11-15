@@ -20,8 +20,7 @@ public sealed class SharedDualWieldSystem : EntitySystem
         rightGunUid = default;
         rightGun = default!;
 
-        if (!HasComp<DualWieldSpecComponent>(user))
-            return false;
+
 
         List<(EntityUid held, GunComponent gunComp)> multishotGuns = [];
         foreach (var held in _hands.EnumerateHeld(user))

@@ -1,0 +1,87 @@
+- type: entity
+  parent: CMBeltBaseStorage
+  id: RNMCBeltDualShotgun
+  name: M276 pattern dual sawn-off M357 Rival holster rig
+  description: "The M276 is the standard load-bearing equipment of the UNMC. It consists of a belt with 2 scabbards on each side, and 2 small containers for shotgun shells. Not commonly issued, but kept in service."
+  components:
+  - type: Sprite
+    sprite: _RNMC14/Objects/Clothing/Belt/shotgunbelt.rsi
+    layers:
+    - state: Holster_no_shotgun_no_ammo
+    - state:
+    - state: shotgun_left
+      map: [ "shotgun_left" ]
+      visible: false
+    - state: shotgun_right
+      map: [ "shotgun_right" ]
+      visible: false
+    - state: holster_double_shotgun_box11
+      map: [ "holster_double_shotgun_box11" ]
+      visible: false
+    - state: holster_double_shotgun_box22
+      map: [ "holster_double_shotgun_box22" ]
+      visible: false
+  - type: Clothing
+    sprite: _RNMC14/Objects/Clothing/Belt/shotgunbelt.rsi
+    slots:
+    - belt
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,15,1
+    whitelist:
+      tags:
+      - RMCWeaponShotgunM357
+      - ShellShotgun
+      - RMCShellShotgun
+  - type: FixedItemSizeStorage
+  - type: LimitedStorage
+    limits:
+    - count: 2
+      popup: rmc-storage-limit-one-gun
+      whitelist:
+        tags:
+        - RMCWeaponShotgunM357
+    - count: 6
+      popup: rmc-storage-limit-generic
+      whitelist:
+        tags:
+        - ShellShotgun
+        - RMCShellShotgun
+  - type: CMHolster
+    whitelist:
+      tags:
+      - RMCWeaponShotgunM357
+  - type: CMStorageVisualizer
+    storageClosed: null
+    storageOpen: null
+  - type: ItemMapper
+    spriteLayers:
+    - shotgun_left
+    - shotgun_right
+    - holster_double_shotgun_box11
+    - holster_double_shotgun_box22
+    mapLayers:
+      shotgun_left:
+        minCount: 1
+        whitelist:
+          tags:
+          - RMCWeaponShotgunM357
+      shotgun_right:
+        minCount: 2
+        whitelist:
+          tags:
+          - RMCWeaponShotgunM357
+      holster_double_shotgun_box11:
+        minCount: 1
+        maxCount: 3
+        whitelist:
+          tags:
+          - ShellShotgun
+          - RMCShellShotgun
+      holster_double_shotgun_box22:
+        minCount: 4
+        whitelist:
+          tags:
+          - ShellShotgun
+          - RMCShellShotgun
