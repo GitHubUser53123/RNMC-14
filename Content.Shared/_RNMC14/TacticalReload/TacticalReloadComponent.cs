@@ -9,10 +9,10 @@ public sealed partial class TacticalReloadComponent : Component
     public float CartridgeReloadTime = 0.5f;
 
     [DataField, AutoNetworkedField]
-    public float MagazineReloadTime = 3.0f;
+    public float MagazineReloadTime = 2.0f;
 
     [DataField, AutoNetworkedField]
-    public float MagazineEjectTime = 1.5f;
+    public float MagazineEjectTime = 1.0f;
 
     [DataField, AutoNetworkedField]
     public bool BreakOnMove = false;
