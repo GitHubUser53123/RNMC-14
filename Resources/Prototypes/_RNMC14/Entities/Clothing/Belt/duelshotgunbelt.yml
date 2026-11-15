@@ -2,7 +2,7 @@
   parent: CMBeltBaseStorage
   id: RNMCBeltDualShotgun
   name: M276 pattern dual sawn-off M357 Rival holster rig
-  description: "The M276 is the standard load-bearing equipment of the UNMC. It consists of a belt with 2 scabbards on each side, and 2 small containers for shotgun shells. Not commonly issued, but kept in service."
+  description: "The M276 is the standard load-bearing equipment of the UNMC. It consists of a belt with 2 lightweight scabbards on each side, and 2 small containers for shotgun shells. Not commonly issued, but kept in service."
   components:
   - type: Sprite
     sprite: _RNMC14/Objects/Clothing/Belt/shotgunbelt.rsi
