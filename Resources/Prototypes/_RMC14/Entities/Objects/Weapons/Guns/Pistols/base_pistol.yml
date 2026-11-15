@@ -84,6 +84,7 @@
           tags:
           - RMCAttachmentBurstFireAssembly
           - RMCAttachmentLaserSight
+  #RNMC
   - type: Multishot
 
 - type: entity

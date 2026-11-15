@@ -91,6 +91,9 @@
   - type: Corrodible
     isCorrodible: false
   - type: RMCMagneticItem
+## RNMC
+  - type: TacticalReload
+    cartridgeReloadTime: 1.5
 
 # 84mm HE
 - type: entity

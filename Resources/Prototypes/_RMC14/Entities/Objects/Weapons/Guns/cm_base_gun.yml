@@ -54,6 +54,8 @@
       state: all
   - type: InteractionActivateOnClick
   - type: GunSecondWind
+  #RNMC
+  - type: TacticalReload
 
 - type: entity
   parent: BaseBullet
