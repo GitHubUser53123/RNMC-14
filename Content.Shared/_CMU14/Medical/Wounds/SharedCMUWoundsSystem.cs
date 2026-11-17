@@ -193,6 +193,10 @@ public abstract class SharedCMUWoundsSystem : EntitySystem
     {
         if (!IsEnabled())
             return;
+
+        if (TryComp<BodyPartComponent>(args.Part, out var bodypart) && bodypart.Body != null)
+            _movement.RefreshMovementSpeedModifiers((EntityUid)bodypart.Body); // RNMC14
+
         RecomputeInternalBleed(args.Part, ignoreSplint: args.Removed);
     }
 

@@ -31,7 +31,6 @@ public abstract class SharedBoneSystem : EntitySystem
     [Dependency] protected readonly SharedFractureSystem Fracture = default!;
     [Dependency] protected readonly SharedStatusEffectsSystem Status = default!;
     [Dependency] protected readonly RMCUnrevivableSystem Unrevivable = default!;
-    [Dependency] protected readonly MovementSpeedModifierSystem _movement = default!;
 
     private const string BoneRegenBoostStatus = "StatusEffectCMUBoneRegenBoost";
     private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "Brute";
