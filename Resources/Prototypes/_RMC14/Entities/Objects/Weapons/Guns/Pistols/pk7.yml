@@ -22,7 +22,7 @@
   - type: Clothing
     sprite: _RMC14/Objects/Weapons/Guns/Pistols/pk7.rsi
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.2
+    accuracyMultiplier: 1.35
   - type: ItemSlots
     slots:
      gun_magazine:

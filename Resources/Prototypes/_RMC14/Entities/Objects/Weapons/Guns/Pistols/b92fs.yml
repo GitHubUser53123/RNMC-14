@@ -5,8 +5,9 @@
   description: A popular police firearm in the 20th century, often employed by hard-boiled cops while confronting terrorists. A classic of its time, chambered in 9mm. Normally found in the hands of Survivors and the Colony Liberation Front.
   components:
   - type: RMCSelectiveFire
-    scatterWielded: 8
-    scatterUnwielded: 8
+    ## RNMC
+    scatterWielded: 7
+    scatterUnwielded: 7
     baseFireRate: 10
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Pistols/b92fs.rsi
@@ -28,9 +29,11 @@
           tags:
           - RMCMagazinePistolB92FS
   - type: GunDamageModifier
-    multiplier: 0.9
+    ## RNMC
+    multiplier: 1.3
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.25
+    ## RNMC
+    accuracyMultiplier: 1.35
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:

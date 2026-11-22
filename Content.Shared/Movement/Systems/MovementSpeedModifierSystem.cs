@@ -6,6 +6,9 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
+using Content.Shared.Body.Components;
+using Content.Shared._CMU14.Medical.Bones;
+using Content.Shared._CMU14.Medical.Items;
 
 namespace Content.Shared.Movement.Systems
 {
@@ -101,6 +104,21 @@ namespace Content.Shared.Movement.Systems
 
                 ev.ModifySpeed(walk, sprint);
             }
+            // rnmc14 start
+            if (TryComp(uid, out BodyComponent? body))
+            {
+                var walk = ev.WalkSpeedModifier - (ev.WalkSpeedModifier / 4);
+                var sprint = ev.SprintSpeedModifier - (ev.SprintSpeedModifier / 4);
+                bool isFrac = false;
+                foreach (var leg in body.LegEntities)
+                {
+                    if (TryComp<FractureComponent>(leg, out var frac) && !HasComp<CMUSplintedComponent>(leg))
+                        isFrac = true;
+                }
+                if (isFrac)
+                    ev.ModifySpeed(walk, sprint);
+            }
+            // rnmc14 stop
 
             if (MathHelper.CloseTo(ev.WalkSpeedModifier, move.WalkSpeedModifier) &&
                 MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifier))

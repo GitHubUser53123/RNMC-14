@@ -20,6 +20,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
@@ -46,6 +47,7 @@ public abstract class SharedCMUWoundsSystem : EntitySystem
     [Dependency] protected readonly INetManager Net = default!;
     [Dependency] protected readonly RMCUnrevivableSystem Unrevivable = default!;
     [Dependency] protected readonly IRobustRandom _random = default!;
+    [Dependency] protected readonly MovementSpeedModifierSystem _movement = default!;
 
     private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "Brute";
     private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "Burn";
@@ -168,6 +170,10 @@ public abstract class SharedCMUWoundsSystem : EntitySystem
     {
         if (!IsEnabled())
             return;
+
+        if (TryComp<BodyPartComponent>(ent.Owner, out var bodypart) && bodypart.Body != null)
+            _movement.RefreshMovementSpeedModifiers((EntityUid)bodypart.Body); // RNMC14
+
         RecomputeInternalBleed(ent.Owner);
     }
 
@@ -187,6 +193,10 @@ public abstract class SharedCMUWoundsSystem : EntitySystem
     {
         if (!IsEnabled())
             return;
+
+        if (TryComp<BodyPartComponent>(args.Part, out var bodypart) && bodypart.Body != null)
+            _movement.RefreshMovementSpeedModifiers((EntityUid)bodypart.Body); // RNMC14
+
         RecomputeInternalBleed(args.Part, ignoreSplint: args.Removed);
     }
 

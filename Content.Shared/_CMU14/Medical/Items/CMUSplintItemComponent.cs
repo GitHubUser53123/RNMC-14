@@ -23,7 +23,7 @@ public sealed partial class CMUSplintItemComponent : Component
     public bool BreakOnDamage = true;
 
     [DataField]
-    public FixedPoint2 BreakDamageThreshold = FixedPoint2.Zero;
+    public FixedPoint2 BreakDamageThreshold = FixedPoint2.New(60);
 
     [DataField]
     public SoundSpecifier? ApplySound;

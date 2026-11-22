@@ -6,13 +6,14 @@ using Content.Shared._CMU14.Medical.Organs.Events;
 using Content.Shared._CMU14.Medical.Organs.Heart;
 using Content.Shared._CMU14.Medical.Organs.Lungs;
 using Content.Shared._CMU14.Medical.StatusEffects;
-using Content.Shared._RMC14.Synth;
-using Content.Shared.StatusEffectNew;
 using Content.Shared._RMC14.Medical.Unrevivable;
+using Content.Shared._RMC14.Synth;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.Movement.Systems;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
@@ -237,8 +238,7 @@ public abstract class SharedBoneSystem : EntitySystem
     ///     time.
     /// </summary>
     protected virtual bool CanHeal(FractureSeverity severity, bool hasBoneRegenBoost)
-        => severity == FractureSeverity.Hairline
-           || hasBoneRegenBoost && severity is FractureSeverity.Simple or FractureSeverity.Compound;
+        => true;
 
     private (bool Boosted, float Multiplier) GetBoneRegenBoost(EntityUid body)
     {

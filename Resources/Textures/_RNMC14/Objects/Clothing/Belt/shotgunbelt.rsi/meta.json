@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Sprites Created by Enrirossi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "Holster_no_shotgun_no_ammo"
+    },
+    {
+      "name": "shotgun_left"
+    },
+    {
+      "name": "shotgun_right"
+    },
+    {
+      "name": "holster_double_shotgun_box11"
+    },
+    {
+      "name": "holster_double_shotgun_box22"
+    }
+  ]
+}
