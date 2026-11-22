@@ -27,8 +27,8 @@
     baseFireModes:
     - SemiAuto
     - Burst
-    scatterWielded: 8
-    scatterUnwielded: 8
+    scatterWielded: 6
+    scatterUnwielded: 6
     baseFireRate: 4
     burstScatterMult: 4
     modifiers:
@@ -51,7 +51,7 @@
           - CMMagazinePistolM77AP
         startingItem: CMMagazinePistolM77AP
   - type: GunDamageModifier
-    multiplier: 1.2
+    multiplier: 1.45
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:
@@ -81,6 +81,8 @@
       rmc-aslot-barrel: 0.625, 0.125
       rmc-aslot-rail: -0.03, 0.185
       rmc-aslot-underbarrel: 0.25, -0.125
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.45
 
 - type: entity
   parent: RMCWeaponPistolM77

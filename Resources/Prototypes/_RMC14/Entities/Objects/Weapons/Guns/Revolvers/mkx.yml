@@ -40,7 +40,7 @@
     soundEmpty:
       path: /Audio/_RMC14/Weapons/Guns/gun_cmb_click1.ogg
   - type: GunDamageModifier
-    multiplier: 1.1
+    multiplier: 1.85
   - type: RMCSelectiveFire
     baseFireModes:
     - SemiAuto
@@ -52,6 +52,7 @@
     burstScatterMult: 4
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.5
+    accuracyMultiplierUnwielded: 1
   - type: Appearance
   - type: RMCAirShot
     preparationTime: 1.5

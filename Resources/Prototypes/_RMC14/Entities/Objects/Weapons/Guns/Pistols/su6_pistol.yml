@@ -111,11 +111,11 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
+        Piercing: 40
   - type: CMArmorPiercing
-    amount: 20
+    amount: 25
   - type: RMCProjectileAccuracy
-    accuracy: 125
+    accuracy: 135
 
 - type: Tag
   id: RMCMagazinePistolSU6

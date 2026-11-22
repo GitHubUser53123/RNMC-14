@@ -6,8 +6,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      450: Critical
-      550: Dead
+      650: Critical
+      750: Dead
   - type: HTN
     rootTask:
       task: CMXenoCompound
@@ -32,7 +32,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 550
+        damage: 900
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -43,9 +43,9 @@
             max: 1
             offset: 0
   - type: AcidBloodSplash
-    closeSplashRadius: 0.5
-    standardSplashRadius: 1.5
-    gibSplashRadius: 2.5
+    closeSplashRadius: 1.5
+    standardSplashRadius: 2.5
+    gibSplashRadius: 3.5
     damage:
       types:
         Heat: 25

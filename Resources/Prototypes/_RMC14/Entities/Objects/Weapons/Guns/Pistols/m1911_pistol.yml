@@ -9,10 +9,10 @@
     - Sidearm
     - CMWeaponPistolM1911
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.15
+    accuracyMultiplier: 1.35
   - type: RMCSelectiveFire
-    scatterWielded: 10
-    scatterUnwielded: 10
+    scatterWielded: 8
+    scatterUnwielded: 8
     baseFireRate: 4
     burstScatterMult: 5
   - type: Gun
@@ -21,7 +21,7 @@
       params:
         pitch: 0.95
   - type: GunDamageModifier
-    multiplier: 1.25
+    multiplier: 1.30
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Pistols/m1911.rsi
   - type: Clothing

@@ -29,13 +29,13 @@
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
   - type: GunDamageModifier
-    multiplier: 1.1
+    multiplier: 1.35
   - type: RMCSelectiveFire
     baseFireRate: 1.2
     scatterWielded: 8
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.1
-    accuracyMultiplierUnwielded: 0.75
+    accuracyMultiplier: 1.25
+    accuracyMultiplierUnwielded: 1
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:
