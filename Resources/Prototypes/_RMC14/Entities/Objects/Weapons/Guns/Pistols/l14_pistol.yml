@@ -35,7 +35,7 @@
         unwieldedScatterMultiplier: 2
         shotsToMaxScatter: 4
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.2
+    accuracyMultiplier: 1.35
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -75,6 +75,9 @@
       rmc-aslot-barrel: 0.650, 0.093
       rmc-aslot-rail: -0.217, 0.127
       rmc-aslot-underbarrel: 0.275, -0.275
+  ## RNMC
+  - type: GunDamageModifier
+    multiplier: 1.05
 
 - type: entity
   parent: RMCWeaponPistolL14

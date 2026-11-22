@@ -322,7 +322,7 @@ public sealed class CMGunSystem : EntitySystem
         {
             if (_dualWield.TryGetDualWieldGuns(user, out _, out _, out _, out _) && HasComp<MultishotComponent>(weapon.Owner))
             {
-                baseMult = weapon.Comp.AccuracyMultiplier;
+                baseMult = weapon.Comp.AccuracyMultiplierUnwielded;
             }
         }
         // RNMC End

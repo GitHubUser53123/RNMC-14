@@ -39,7 +39,7 @@
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
   - type: GunDamageModifier
-    multiplier: 1.5
+    multiplier: 1.85
   - type: RMCSelectiveFire
     baseFireModes:
     - SemiAuto
@@ -59,8 +59,8 @@
         unwieldedScatterMultiplier: 2
         shotsToMaxScatter: 6
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.1
-    accuracyMultiplierUnwielded: 0.75
+    accuracyMultiplier: 1.25
+    accuracyMultiplierUnwielded: 1
   - type: Appearance
   - type: AttachableHolder
     slots:
@@ -155,7 +155,7 @@
   - type: Clothing
     sprite: _RMC14/Objects/Weapons/Guns/Pistols/mateba_special.rsi
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.2
+    accuracyMultiplier: 1.45
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:

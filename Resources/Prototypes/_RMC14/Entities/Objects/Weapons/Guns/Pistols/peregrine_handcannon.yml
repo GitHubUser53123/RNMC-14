@@ -34,7 +34,7 @@
     accuracyMultiplier: 1
     accuracyMultiplierUnwielded: 0.75
   - type: GunDamageModifier
-    multiplier: 1.4
+    multiplier: 1.6
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -45,6 +45,8 @@
         whitelist:
           tags:
           - RMCMagazinePistolHandcannon
+          - RMCMagazinePistolHandcannonHI
+          - RMCMagazinePistolHandcannonHIAP
         startingItem: RMCMagazinePistolHandcannon
   - type: AttachableHolder
     slots:
@@ -267,11 +269,11 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 45
+        Piercing: 65
   - type: CMArmorPiercing
-    amount: 30
+    amount: 15
   - type: RMCProjectileAccuracy
-    accuracy: 85
+    accuracy: 105
 
 - type: entity
   parent: CMBulletBase
@@ -281,9 +283,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 45
+        Piercing: 85
   - type: CMArmorPiercing
-    amount: 5
+    amount: 15
   - type: RMCStunOnHit
     stuns:
     - whitelist:
@@ -291,7 +293,7 @@
       maxRange: 4.5
       stunTime: 1
   - type: RMCProjectileAccuracy
-    accuracy: 70
+    accuracy: 105
   - type: RMCDebilitate
     blacklist:
       components:
@@ -307,7 +309,7 @@
   name: bullet (High Impact Armor Piercing .50)
   components:
   - type: CMArmorPiercing
-    amount: 50
+    amount: 55
 
 - type: Tag
   id: RMCWeaponPistolHandcannon

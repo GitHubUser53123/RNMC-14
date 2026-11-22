@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMBaseWeaponSMG
+  parent: RNMCBaseWeaponSMGDualWield
   name: MAC-15 submachinegun
   id: WeaponSMGMAC15 # TODO RMC14 10% chance to have an underbarrel grenade launcher
   description: A cheap, reliable design and manufacture make this ubiquitous submachinegun useful despite the age.
@@ -85,7 +85,6 @@
       rmc-aslot-underbarrel: 0.45, -0.31
   - type: GunDamageModifier
     multiplier: 0.9
-  - type: Multishot
 
 - type: entity
   parent: CMMagazineRifleBase

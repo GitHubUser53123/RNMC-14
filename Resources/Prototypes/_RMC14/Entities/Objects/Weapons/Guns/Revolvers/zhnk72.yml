@@ -68,6 +68,9 @@
       rmc-aslot-barrel: 0.75, 0.1
       rmc-aslot-rail: -0.14, 0.158
       rmc-aslot-underbarrel: 0.38, -0.17
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.5
+    accuracyMultiplierUnwielded: 1.1
 
 - type: entity
   parent: RMCWeaponRevolverZHNK72

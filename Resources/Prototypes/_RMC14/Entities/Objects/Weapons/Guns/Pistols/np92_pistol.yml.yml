@@ -13,7 +13,8 @@
   - type: Clothing
     sprite: _RMC14/Objects/Weapons/Guns/Pistols/np92.rsi
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.25
+    accuracyMultiplier: 1.75
+    accuracyMultiplierUnwielded: 1.55
   - type: MeleeWeapon
     damage:
       types:
@@ -88,7 +89,8 @@
   - type: Clothing
     sprite: _RMC14/Objects/Weapons/Guns/Pistols/npz92.rsi
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.25
+    accuracyMultiplier: 1.75
+    accuracyMultiplierUnwielded: 1.55
   - type: MeleeWeapon
     damage:
       types:
@@ -225,7 +227,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40
+        Piercing: 35
 
 - type: entity
   id: RMCCartridgePistolNP92
