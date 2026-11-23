@@ -5,8 +5,9 @@
   description: The KT-42 Automag is an archaic but reliable design, going back many decades. There have been many versions and variations, but the 42 is by far the most common. You can't go wrong with this handcannon.
   components:
   - type: RMCSelectiveFire
-    scatterWielded: 5
-    scatterUnwielded: 6
+## RNMC
+    scatterWielded: 4
+    scatterUnwielded: 5
     baseFireRate: 10
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Pistols/kt42.rsi
@@ -28,8 +29,8 @@
           tags:
           - RMCMagazinePistolKT42
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 0.95
-    accuracyMultiplierUnwielded: 0.9
+## RNMC
+    accuracyMultiplier: 1.15
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:
@@ -55,6 +56,9 @@
       rmc-aslot-barrel: 0.783, 0.0945
       rmc-aslot-rail: -0.065, 0.125
       rmc-aslot-underbarrel: 0.432, -0.25
+## RNMC
+  - type: GunDamageModifier
+    multiplier: 1.05
 
 - type: entity
   parent: CMBaseMagazinePistol

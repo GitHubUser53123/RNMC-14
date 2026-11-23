@@ -21,7 +21,7 @@
     - belt
   - type: Wieldable
   - type: WieldDelay
-    baseDelay: 0.2
+    baseDelay: 0.1
   - type: MeleeWeapon
     damage:
       types:
@@ -62,8 +62,6 @@
   - type: GunUnskilledPenalty
     angleIncrease: 5
   - type: GunPointBlank
-  - type: GunDualWielding
-    weaponGroup: Handgun
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:
@@ -84,6 +82,8 @@
           tags:
           - RMCAttachmentBurstFireAssembly
           - RMCAttachmentLaserSight
+  #RNMC
+  - type: Multishot
 
 - type: entity
   abstract: true

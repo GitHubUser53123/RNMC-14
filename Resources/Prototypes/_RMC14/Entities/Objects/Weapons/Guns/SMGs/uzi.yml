@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMBaseWeaponSMG # TODO RMC14 UZI CAN JAM
+  parent: RNMCBaseWeaponSMGDualWield # TODO RMC14 UZI CAN JAM
   name: UZI
   id: RMCWeaponSMGUZI
   description: Exported to over 90 countries, somehow this relic has managed to end up here. Couldn't be simpler to use.

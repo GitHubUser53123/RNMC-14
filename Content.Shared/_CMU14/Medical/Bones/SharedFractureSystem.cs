@@ -3,12 +3,14 @@ using Content.Shared._CMU14.Medical.Bones.Events;
 using Content.Shared.Body.Part;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
+using Content.Shared.Movement.Systems;
 
 namespace Content.Shared._CMU14.Medical.Bones;
 
 public abstract class SharedFractureSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly MovementSpeedModifierSystem _movement = default!;
 
     /// <summary>
     ///     Pass <see cref="FractureSeverity.None"/> to clear the fracture entirely.
@@ -26,7 +28,10 @@ public abstract class SharedFractureSystem : EntitySystem
         if (newSev == FractureSeverity.None)
         {
             RaiseSeverityChanged(ent.Owner, current, FractureSeverity.None);
+            TryComp<BodyPartComponent>(ent.Owner, out var bodypart);
             RemComp<FractureComponent>(ent);
+            if (bodypart != null && bodypart.Body != null)
+                _movement.RefreshMovementSpeedModifiers((EntityUid)bodypart.Body); // RNMC14
             return;
         }
 

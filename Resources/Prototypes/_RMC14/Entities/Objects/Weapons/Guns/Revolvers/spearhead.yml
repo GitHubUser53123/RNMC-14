@@ -75,6 +75,11 @@
       rmc-aslot-rail: -0.14, 0.158
       rmc-aslot-stock: -0.59375, 0.09375
       rmc-aslot-underbarrel: 0.38, -0.24
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.25
+    accuracyMultiplierUnwielded: 1
+  - type: GunDamageModifier
+    multiplier: 1.35
 
 - type: entity
   parent: RMCWeaponRevolverSpearhead
@@ -236,7 +241,7 @@
   - type: CMArmorPiercing
     amount: 15
   - type: RMCProjectileAccuracy
-    accuracy: 90
+    accuracy: 100
 
 - type: entity
   parent: CMBulletBase
@@ -256,7 +261,7 @@
   - type: CMArmorPiercing
     amount: 0
   - type: RMCProjectileAccuracy
-    accuracy: 90
+    accuracy: 100
     thresholds:
     - range: 12
       falloff: 10

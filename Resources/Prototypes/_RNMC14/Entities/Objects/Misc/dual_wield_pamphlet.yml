@@ -1,0 +1,14 @@
+- type: entity
+  parent: RMCPamphletAdmin
+  id: RNMCPamphletDualWield
+  name: dual wielding instructional pamphlet
+  description: "Used to quickly impart vital knowledge.\nThis one details how to handle two firearms at once."
+  components:
+  - type: Sprite
+    state: pamphlet_written
+  - type: SkillPamphlet
+    bypassLimit: true
+    addSkills:
+      RMCSkillSpecialistWeapons: 1
+    addComps:
+    - type: DualWieldSpec

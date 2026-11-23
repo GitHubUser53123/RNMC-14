@@ -6,6 +6,11 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+// RNMC Start
+using Content.Shared._RNMC14.DualWielding;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Weapons.Ranged.Components;
+// RNMC End
 
 namespace Content.Shared._RMC14.Weapons.Ranged.Prediction;
 
@@ -16,6 +21,9 @@ public abstract class SharedGunPredictionSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly VehicleRideSurfaceSystem _rideSurface = default!;
+    // RNMC Start
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    // RNMC End
 
     public bool GunPrediction { get; private set; }
 
@@ -29,14 +37,41 @@ public abstract class SharedGunPredictionSystem : EntitySystem
         var user = session.AttachedEntity;
 
         if (user == null ||
-            !_combatMode.IsInCombatMode(user) ||
-            !_gun.TryGetGun(user.Value, out var ent, out var gun))
+            !_combatMode.IsInCombatMode(user))
         {
             return null;
         }
 
-        if (ent != GetEntity(netGun))
-            return null;
+        var targetGun = GetEntity(netGun);
+        GunComponent? gun = null;
+        EntityUid ent = default;
+
+        // RNMC Start
+        if (TryComp<GunComponent>(targetGun, out var targetGunComp) && HasComp<MultishotComponent>(targetGun))
+        {
+            foreach (var held in _hands.EnumerateHeld(user.Value))
+            {
+                if (held == targetGun)
+                {
+                    ent = targetGun;
+                    gun = targetGunComp;
+                    break;
+                }
+            }
+        }
+        // RNMC End
+
+        if (gun == null)
+        {
+            if (!_gun.TryGetGun(user.Value, out ent, out gun))
+            {
+                return null;
+            }
+
+            if (ent != targetGun)
+                return null;
+        // RNMC (technically I added this } below, I know, flay me for not including it in the above "// RNMC Start/End"
+        }
 
         var shootCoordinates = GetCoordinates(coordinates);
         var targetUid = GetEntity(target);

@@ -3,6 +3,9 @@ using Content.Shared.Timing;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Timing;
+// RNMC Start
+using Content.Shared._RNMC14.DualWielding;
+// RNMC End
 
 namespace Content.Shared._RMC14.Weapons.Ranged;
 
@@ -20,6 +23,20 @@ public sealed class SharedFireGroupSystem : EntitySystem
 
     private void OnGunShot(Entity<RMCFireGroupComponent> ent, ref GunShotEvent args)
     {
+        // RNMC Start
+        if (HasComp<MultishotComponent>(ent.Owner))
+        {
+            int multishotCount = 0;
+            foreach (var item in _hands.EnumerateHeld(args.User))
+            {
+                if (HasComp<MultishotComponent>(item))
+                    multishotCount++;
+            }
+            if (multishotCount >= 2)
+                return;
+        }
+        // RNMC End
+
         var weapon = ent.Owner;
         var comp = ent.Comp;
         var user = args.User;
@@ -53,6 +70,20 @@ public sealed class SharedFireGroupSystem : EntitySystem
     {
         if (args.Cancelled)
             return;
+
+        // RNMC Start
+        if (HasComp<MultishotComponent>(ent.Owner))
+        {
+            int multishotCount = 0;
+            foreach (var item in _hands.EnumerateHeld(args.User))
+            {
+                if (HasComp<MultishotComponent>(item))
+                    multishotCount++;
+            }
+            if (multishotCount >= 2)
+                return;
+        }
+        // RNMC End
 
         if (TryComp(ent.Owner, out UseDelayComponent? useDelayComponent) &&
             _delay.IsDelayed((ent.Owner, useDelayComponent), ent.Comp.UseDelayID))

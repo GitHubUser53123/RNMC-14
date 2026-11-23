@@ -20,6 +20,8 @@
     blacklist:
       components:
       - Xeno
+  ## RNMC
+  - type: TacticalReloadStorage
 
 - type: entity
   abstract: true

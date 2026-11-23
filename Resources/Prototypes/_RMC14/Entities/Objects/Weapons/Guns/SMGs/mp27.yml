@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: CMBaseWeaponSMG
+  parent: RNMCBaseWeaponSMGDualWield
   name: MP27 submachinegun
   id: RMCWeaponSMGMP27
   description: An archaic design going back almost a century, the MP27 was common in its day. Today it sees limited use as cheap computer-printed replicas or family heirlooms. An extremely ergonomic and lightweight design allows easy mass production and surpisingly good handling, but the cheap materials used hurt the weapon's scatter noticeably.

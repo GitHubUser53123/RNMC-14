@@ -13,6 +13,9 @@ using Content.Shared._RMC14.Weapons.Common;
 using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared._RMC14.Weapons.Ranged.Whitelist;
 using Content.Shared._RMC14.Vehicle;
+// RNMC Start
+using Content.Shared._RNMC14.DualWielding;
+// RNMC End
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -82,6 +85,9 @@ public sealed class CMGunSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    // RNMC Start
+    [Dependency] private readonly SharedDualWieldSystem _dualWield = default!;
+    // RNMC End
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ProjectileComponent> _projectileQuery;
@@ -310,6 +316,16 @@ public sealed class CMGunSystem : EntitySystem
 
         if (TryComp(weapon.Owner, out WieldableComponent? wieldableComponent) && wieldableComponent.Wielded)
             baseMult = weapon.Comp.AccuracyMultiplier;
+
+        // RNMC Start
+        if (TryGetGunUser(weapon, out var user))
+        {
+            if (_dualWield.TryGetDualWieldGuns(user, out _, out _, out _, out _) && HasComp<MultishotComponent>(weapon.Owner))
+            {
+                baseMult = weapon.Comp.AccuracyMultiplierUnwielded;
+            }
+        }
+        // RNMC End
 
         var ev = new GetWeaponAccuracyEvent(baseMult, weapon.Comp.RangeFlat);
         RaiseLocalEvent(weapon.Owner, ref ev);
@@ -760,6 +776,14 @@ public sealed class CMGunSystem : EntitySystem
     {
         if (gun.Comp.WeaponGroup == GunDualWieldingGroup.None || !TryGetGunUser(gun, out var user))
             return;
+
+        // RNMC Start
+        if (HasComp<MultishotComponent>(gun.Owner))
+        {
+            if (_dualWield.TryGetDualWieldGuns(user, out _, out _, out _, out _))
+                return;
+        }
+        // RNMC End
 
         if (!TryGetOtherDualWieldedGun(user, gun, out _))
             return;

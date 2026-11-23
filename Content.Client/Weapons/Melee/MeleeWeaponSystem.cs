@@ -14,6 +14,9 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
+// RNMC Start
+using Content.Shared._RNMC14.DualWielding;
+// RNMC End
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -46,6 +49,9 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     // RMC14
     [Dependency] private readonly RMCLagCompensationSystem _rmcLagCompensation = default!;
     [Dependency] private readonly RMCMeleeWeaponSystem _rmcMeleeWeapon = default!;
+    // RNMC Start
+    [Dependency] private readonly SharedDualWieldSystem _dualWield = default!;
+    // RNMC End
 
     public override void Initialize()
     {
@@ -74,6 +80,13 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         var entity = entityNull.Value;
+
+        // RNMC Start. I'm sure there's a better way to do this but I'm not smart enough to figure that out.
+        if (_dualWield.TryGetDualWieldGuns(entity, out _, out _, out _, out _))
+        {
+            return;
+        }
+        // RNMC End
 
         if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
             return;

@@ -30,7 +30,8 @@
       components:
       - Xeno
   - type: StoreAfterFailedInteract
-
+  ## RNMC
+  - type: TacticalReloadStorage
 
 - type: entity
   parent: [RMCPouch, BaseStorageItem]

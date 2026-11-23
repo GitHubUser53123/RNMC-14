@@ -134,16 +134,16 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 45
+        Piercing: 55
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22
       falloff: 1
       ignoreModifiers: true
   - type: CMArmorPiercing
-    amount: 15
+    amount: 25
   - type: RMCProjectileAccuracy
-    accuracy: 90
+    accuracy: 100
 
 - type: Tag
   id: RMCWeaponRevolver38Magnum

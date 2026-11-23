@@ -1,0 +1,7 @@
+- type: entity
+  parent: RMCSkillBase
+  id: RMCSkillDualWield
+  name: Dual Wielding
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SkillDefinition

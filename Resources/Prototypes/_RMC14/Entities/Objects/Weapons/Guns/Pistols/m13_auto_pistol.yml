@@ -15,15 +15,15 @@
     soundGunshot:
       collection: RMCM13Shoot
   - type: RMCSelectiveFire
-    scatterWielded: 6
-    scatterUnwielded: 7
+    scatterWielded: 9
+    scatterUnwielded: 11
     baseFireRate: 10
-    burstScatterMult: 4
+    burstScatterMult: 5
     modifiers:
       FullAuto:
-        maxScatterModifier: 4
+        maxScatterModifier: 5.5
         useBurstScatterMult: true
-        unwieldedScatterMultiplier: 2
+        unwieldedScatterMultiplier: 1.35
         shotsToMaxScatter: 40
     baseFireModes:
     - FullAuto
@@ -45,9 +45,9 @@
   - type: Clothing
     sprite: _RMC14/Objects/Weapons/Guns/Pistols/m13.rsi
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1
+    accuracyMultiplier: 1.2
   - type: GunDamageModifier
-    multiplier: .75
+    multiplier: 1.05
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -316,7 +316,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 24
+        #RNMC
+        Piercing: 32
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22
@@ -340,7 +341,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 18
+        #RNMC
+        Piercing: 24
   - type: CMArmorPiercing
     amount: 30
 

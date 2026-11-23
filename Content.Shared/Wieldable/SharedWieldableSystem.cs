@@ -21,6 +21,9 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
+// RNMC Start
+using Content.Shared._RNMC14.DualWielding;
+// RNMC End
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Timing;
@@ -39,6 +42,9 @@ public abstract class SharedWieldableSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
+    // RNMC Start
+    [Dependency] private readonly SharedDualWieldSystem _dualWield = default!;
+    // RNMC End
 
     public override void Initialize()
     {
@@ -191,6 +197,13 @@ public abstract class SharedWieldableSystem : EntitySystem
         if (args.Handled)
             return;
 
+        // RNMC Start
+        if (ShouldBlockWield(args.User, uid))
+        {
+            return;
+        }
+        // RNMC End
+
         if (!component.Wielded)
         {
             TryWield(uid, component, args.User);
@@ -281,6 +294,11 @@ public abstract class SharedWieldableSystem : EntitySystem
     /// <returns>True if the attempt wasn't blocked.</returns>
     public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user)
     {
+        // RNMC Start
+        if (ShouldBlockWield(user, used))
+            return false;
+        // RNMC End
+
         if (!CanWield(used, component, user))
             return false;
 
@@ -431,4 +449,25 @@ public abstract class SharedWieldableSystem : EntitySystem
 
         args.Damage += component.BonusDamage;
     }
+
+    // RNMC Start
+    private bool ShouldBlockWield(EntityUid user, EntityUid used)
+    {
+        if (HasComp<MultishotComponent>(used))
+        {
+            if (!_dualWield.TryGetDualWieldGuns(user, out _, out _, out _, out _))
+                return false;
+
+            int multishotCount = 0;
+            foreach (var item in _hands.EnumerateHeld(user))
+            {
+                if (HasComp<MultishotComponent>(item))
+                    multishotCount++;
+            }
+            if (multishotCount >= 2)
+                return true;
+        }
+        return false;
+    }
+    // RNMC End
 }

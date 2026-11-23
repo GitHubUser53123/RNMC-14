@@ -1,9 +1,13 @@
 ﻿using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;
+// RNMC Start
+using Content.Shared._RNMC14.DualWielding;
+// RNMC End
 
 namespace Content.Shared._RMC14.Weapons.Ranged;
 
@@ -12,6 +16,9 @@ public sealed class RMCGunGroupPenaltySystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly CMGunSystem _rmcGun = default!;
+    // RNMC Start
+    [Dependency] private readonly SharedDualWieldSystem _dualWield = default!;
+    // RNMC End
 
     private EntityQuery<GunGroupPenaltyComponent> _gunGroupPenalty;
     private EntityQuery<ProjectileComponent> _projectileQuery;
@@ -63,6 +70,13 @@ public sealed class RMCGunGroupPenaltySystem : EntitySystem
         if (!_rmcGun.TryGetGunUser(ent, out var user))
             return;
 
+        // RNMC Start
+        EntityUid mainGunUid, rightGunUid;
+        GunComponent mainGun, rightGun;
+        if (_dualWield.TryGetDualWieldGuns(user, out mainGunUid, out mainGun, out rightGunUid, out rightGun) && HasComp<MultishotComponent>(ent.Owner))
+            return;
+        // RNMC End
+
         foreach (var held in _hands.EnumerateHeld((user, user)))
         {
             if (held == ent.Owner ||
@@ -83,6 +97,13 @@ public sealed class RMCGunGroupPenaltySystem : EntitySystem
     {
         if (!_rmcGun.TryGetGunUser(ent, out var user))
             return;
+
+        // RNMC Start (This specific block is evil and bites if you glance at it wrong, I wish I knew why, as it's honestly a pretty simple block.)
+        EntityUid mainGunUid, rightGunUid;
+        GunComponent mainGun, rightGun;
+        if (_dualWield.TryGetDualWieldGuns(user, out mainGunUid, out mainGun, out rightGunUid, out rightGun) && HasComp<MultishotComponent>(ent.Owner))
+            return;
+        // RNMC End
 
         var other = false;
         foreach (var held in _hands.EnumerateHeld((user, user)))
